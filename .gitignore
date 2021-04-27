@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # MongoURI file
-default.json
+default.jsondebug.log $ git rm --cached default.json rm default.json
