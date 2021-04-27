@@ -105,3 +105,4 @@ dist
 
 # MongoURI file
 default.jsondebug.log $ git rm --cached default.json rm default.json
+default.json
