@@ -23,12 +23,11 @@ check('password', 'Please enter a password that is 6 characters or longer')
 ],
 async (req, res) => {
     const errors = validationResult(req);
+    const { name, email, password } = req.body;
 
     if(!errors.isEmpty()){
         return res.status(400).json({ errors: errors.array() });
     }
-
-    const { name, email, password } = req.body;
 
     try {
     // See if user exists
@@ -45,12 +44,14 @@ async (req, res) => {
             d: 'mm'
         })
 
+    // Creates a new user based values extracted from req.body    
         user = new User({
-            name,
-            email,
-            avatar,
-            password
+            name: name,
+            email: email,
+            password: password,
+            avatar: avatar,
         })
+
     // Encrypt users password
         const salt = await bcrypt.genSalt(10);
 
@@ -58,6 +59,7 @@ async (req, res) => {
 
         await user.save();
         
+    // Creates jsonwebtoken (JWT)
         const payload = {
             user: {
                 id: user.id
