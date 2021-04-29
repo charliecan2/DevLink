@@ -6,10 +6,6 @@ const ProfileSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    avatar: {
-        type: String,
-        required: true
-    },
     company: {
         type: String
     },
@@ -90,7 +86,7 @@ const ProfileSchema = new Schema({
             }
         }
     ],
-    socialmedia: {
+    social: {
         linkedin: {
             type: String
         },
@@ -113,6 +109,6 @@ const ProfileSchema = new Schema({
     }
 });
 
-const User = mongoose.model('User', ProfileSchema);
+const Profile = mongoose.model('Profile', ProfileSchema);
 
-module.exports = User;
+module.exports = Profile;
