@@ -55,10 +55,10 @@ router.post('/', [auth, [
     const profileFields = {};
     profileFields.user = req.user.id;
     if(company) profileFields.company = company;
-    if(website) profileFields.company = website;
-    if(location) profileFields.company = location;
-    if(bio) profileFields.company = bio;
-    if(status) profileFields.company = status;
+    if(website) profileFields.website = website;
+    if(location) profileFields.location = location;
+    if(bio) profileFields.bio = bio;
+    if(status) profileFields.status = status;
     if(githubusername) profileFields.githubusername = githubusername;
     if(skills) {
         profileFields.skills = skills.split(',').map(skill => skill.trim())
@@ -89,10 +89,10 @@ router.post('/', [auth, [
         profile = new Profile(profileFields);
         await profile.save();
         res.json(profile);
-        
+
     }catch(err){
         console.error(err.message);
-        res.status(500).send('Server error')
+        res.status(500).send('Server error');
     }
     res.send(profileFields);
 })
