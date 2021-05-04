@@ -15,7 +15,7 @@ router.get('/', auth, async (req, res) => {
         res.json(user)
     } catch(err){
         if (err) throw err;
-        res.send(500).send('Server error')
+        res.send(500).send('Server error');
     }
 });
 
