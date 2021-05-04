@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const register = () => {
     return (
@@ -34,7 +35,7 @@ const register = () => {
                 <input type="submit" className="btn btn-primary" value="Register" />
             </form>
             <p className="my-1">
-                Already have an account? <a href="/login">Sign In</a>
+                Already have an account? <Link to='login'>Sing In</Link>
             </p>
         </section>
     )
