@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Profiles = () => {
+function Profiles(){
     return (
         <section class="container">
             <h1 class="large text-primary">Developers</h1>
