@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import CreateProfile from './components/profile-forms/CreateProfile'
 import Profiles from './components/profiles/Profiles';
 import Dashboard from './components/dashboard/Dashboard';
 import './App.css';
@@ -39,6 +40,9 @@ function App() {
             </Route>
             <PrivateRoute exact path='/dashboard'>
               <Dashboard />
+            </PrivateRoute>
+            <PrivateRoute exact path='/create-profile'>
+              <CreateProfile />
             </PrivateRoute>
           </Switch>
         </Fragment>
