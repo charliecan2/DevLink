@@ -3,13 +3,21 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCode, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar({auth: { isAuthenticated, loading }, logout }){
     const authLinks = (
         <ul>
             <li>
+                <Link to="/dashboard">
+                <FontAwesomeIcon icon={faUser} />{' '} 
+                <span className="hide-sm">Dashboard</span>
+                </Link>
+            </li>
+            <li>
                 <a onClick={logout} href="#!">
-                    <i classname="fas fa-sign-out-alt"></i>{' '} 
+                    <FontAwesomeIcon icon={faSignOutAlt} />{' '} 
                     <span className="hide-sm">Logout</span>
                 </a> 
             </li>
@@ -38,10 +46,10 @@ function Navbar({auth: { isAuthenticated, loading }, logout }){
         <nav className="navbar bg-dark">
             <h1>
                 <Link to='/'>
-                    <i className="fas fa-code">DevLink</i>
+                    <FontAwesomeIcon icon={faCode}/> DevLink
                 </Link>
             </h1>
-             { !loading && (<Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>)}
+            <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
         </nav>
     )
 }

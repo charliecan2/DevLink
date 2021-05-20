@@ -9,7 +9,7 @@ const Dashboard = ({ getCurrentProfile, auth, profile }) => {
     }, [])
 
     return (
-        <section>
+        <section className="container">
             Dashboard
         </section> 
     )
